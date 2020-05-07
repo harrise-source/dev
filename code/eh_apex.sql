@@ -71,7 +71,7 @@ BEGIN
 END;
 
 /*
-	APEX_APPLICATION_GLOBAL.VC_ARR2
+	APEX_APPLICATION_GLOBAL.VC_ARR2 
   -------------------------------------------------------------------------------
 	TABLE_TO_STRING()
 
@@ -83,7 +83,7 @@ create or replace function get_contacts (
     p_cust_id  in  number ) 
     return varchar2 
 is 
-    l_vc_arr2   apex_application_global.vc_arr2; 
+    l_vc_arr2   apex_application_global.vc_arr2; -- subtype vc_arr2 is sys.dbms_sql.varchar2a;
     l_contacts  varchar2(32000); 
 begin 
  
@@ -101,6 +101,26 @@ begin
    return l_contacts; 
  
 end get_contacts;
+
+
+
+-- apex_t_varchar2
+-------------------------------------------------------------------------------
+-- DEFINTION -- create or replace NONEDITIONABLE type wwv_flow_t_varchar2 as table of varchar2(32767)
+--
+declare
+  l_values      apex_t_varchar2
+  l_first_value varchar2(100);
+begin
+
+  l_values := apex_string.split(p_str => 'VALUE1:VALUE2'
+                               ,p_sep => ':');
+  l_first_value := l_values(1);                    
+
+end;
+  
+
+
 
 
 /* 
