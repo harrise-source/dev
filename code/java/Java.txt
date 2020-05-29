@@ -1,0 +1,53 @@
+Factory Method in Java.
+
+In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created.
+
+
+##Java Options JDK argument for debug
+-Djbo.debugoutput=console
+
+
+##Abstract class
+-------------------------------------------------------------
+A class that can not be instantiated. 
+
+An abstract class is used by creating an inheriting subclass that can be instantiated. An abstract class does a few things for the inheriting subclass:
+
+1. Define methods which can be used by the inheriting subclass.
+1. Define abstract methods which the inheriting subclass must implement.
+1. Provide a common interface which allows the subclass to be interchanged with all other subclasses.
+
+_Abstract classes are similar to interfaces_
+
+##Interfaces
+-------------------------------------------------------------
+"contract" that spells out how their software interacts.
+
+https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html
+
+
+##Which should you use, abstract classes or interfaces?
+-------------------------------------------------------------
+Consider using abstract classes if any of these statements apply to your situation:
+ - You want to share code among several closely related classes.
+ - You expect that classes that extend your abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).
+ - You want to declare non-static or non-final fields. This enables you to define methods that can access and modify the state of the object to which they belong.
+
+Consider using interfaces if any of these statements apply to your situation:
+ - You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
+ - You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+ - You want to take advantage of multiple inheritance of type.
+
+
+##Writing Final Classes and Methods
+-------------------------------------------------------------
+
+final on a method means that subclasses _cannot override them_
+
+https://docs.oracle.com/javase/tutorial/java/IandI/final.html
+
+
+##Dates
+
+https://stackoverflow.com/questions/35668643/add-1-month-from-current-date-using-java-sql-date
+
