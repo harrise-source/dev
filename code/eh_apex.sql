@@ -1,12 +1,15 @@
 --Sub variables
 --
-APP_SESSION
+&APP_SESSION.
+&APP_ID.
+&APP_PAGE_ID.
+
 
 
 
 -- apex_util.prepare_url
 --
-,apex_util.prepare_url('f?p='||:APP_ID||':40:'||:APP_SESSION||':::40:P40_ID:'||client_id) lnk
+,apex_util.prepare_url('f?p='||:APP_ALIAS||':40:'||:APP_SESSION||':::40:P40_ID:'||client_id) lnk
     
 '<a href="'||
   apex_util.prepare_url( p_url => 'f?p='||:APP_ID||':20:'||:APP_SESSION||':TIMELINE::20:P20_REQUEST_ID

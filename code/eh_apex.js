@@ -116,15 +116,7 @@ t-Button--simple
 
 
 /****************************************************************************
-  jQuery data 
-  http://api.jquery.com/data/
-*****************************************************************************/
-
-events = $(source).data('events');
-
-
-/****************************************************************************
-  APP: Land
+  APP: 
 *****************************************************************************/
 
 function openModal(p_div_id)
@@ -190,9 +182,9 @@ id = $(pElement).find('span').first().data('id');
 */
 
 
-apex.server.process("get_order_info", {
+apex.server.process("get_info", {
     // x01: "ED"
-    // pageItems: "#P34_SELECTED_ORDER"
+    // pageItems: "#P10_SELECTED"
   }, {
     // dataType: "text",
     // async:false,
@@ -238,9 +230,6 @@ apex.jQuery.ajax({
 
 
 
-/****************************************************************************
-    jQuery
-*****************************************************************************/
 
 /*
   Capture a key release Escape Key
