@@ -100,3 +100,12 @@ select *
 from dba_scheduler_job_log 
 where job_name like 'IMAGE/_' escape '/';
 
+
+-------------------------------------------------------------------------------
+-- ALL_OBJECTS invalid
+--
+select *
+ --unique status 
+from all_objects 
+where status = 'INVALID'
+and owner = :OWNER;
