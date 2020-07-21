@@ -1,5 +1,3 @@
-
-
 // DESC : Apex Native loader
 // **********************************************************************************************
 
@@ -22,19 +20,19 @@ loader.remove();
 // with an ajax call
 //--
 apex.server.process(
-  "Set product name", {}, {
-  dataType: 'text',
-  beforeSend: function () {
-    apex.widget.waitPopup();
-  },
-  success: function (pData) {
-    setTimeout(function () {
-      $s("P6_PRODUCT_NAME", pData);
-      $("#apex_wait_overlay").remove();
-      $(".u-Processing").remove();
-    }, 2000);
-  }
-});
+    "Set product name", {}, {
+        dataType: 'text',
+        beforeSend: function() {
+            apex.widget.waitPopup();
+        },
+        success: function(pData) {
+            setTimeout(function() {
+                $s("P6_PRODUCT_NAME", pData);
+                $("#apex_wait_overlay").remove();
+                $(".u-Processing").remove();
+            }, 2000);
+        }
+    });
 
 //URL : http://oraclemasterminds.blogspot.com/2018/04/displaying*processing*spinners*in*apex.html
 //URL : https://chrisjansen.me/apex-loading-when-processing-ajax-call/
@@ -45,27 +43,25 @@ apex.server.process(
 //--
 
 var popup = apex.widget.waitPopup();
-var promise = apex.server.process("SUBMIT_REQUEST"
-  , {
+var promise = apex.server.process("SUBMIT_REQUEST", {
     pageItems: "#P207_SUBMIT_REQUEST_ID"
-  }
-  , {
-    dataType: 'text'
-    , success: function (pData) {
-      apex.region("p207_myreq_reg").refresh();
+}, {
+    dataType: 'text',
+    success: function(pData) {
+        apex.region("p207_myreq_reg").refresh();
     }
-  });
-  
-promise.always(function () {
-  popup.remove();
+});
+
+promise.always(function() {
+    popup.remove();
 });
 
 
 // Displays a page-level success message ‘Changes saved!’.
-apex.message.showPageSuccess( "Changes saved!" );
+apex.message.showPageSuccess("Changes saved!");
 
 // show message from dialog page on close
-if (this.data.successMessage ) {
+if (this.data.successMessage) {
 
     apex.message.showPageSuccess(this.data.successMessage.text);
 }
@@ -73,7 +69,7 @@ if (this.data.successMessage ) {
 
 
 // Displays an alert ‘Load complete.’, then after the dialog closes executes the ‘afterLoad()’ function.
-apex.message.alert( "Load complete.", function(){
+apex.message.alert("Load complete.", function() {
     afterLoad();
 });
 
@@ -84,7 +80,8 @@ apex.message.alert( "Load complete.", function(){
 // JavaScript Expression
 //
 this.browserEvent.which === 13 //enter or 
-|| this.browserEvent.which === 9 //tab
+    ||
+    this.browserEvent.which === 9 //tab
 
 
 
@@ -97,20 +94,24 @@ this.browserEvent.which === 13 //enter or
 // buttons classes  - quick
 
 // link text 
-<span class="t-Icon fa fa-icon_name" aria-hidden="true"></span>#COLUMN#
+    <
+    span class = "t-Icon fa fa-icon_name"
+aria - hidden = "true" > < /span>#COLUMN#
 
 
-<span class="t-Icon fa fa-gavel" aria-hidden="true"></span>#JOB_NO#
+<
+span class = "t-Icon fa fa-gavel"
+aria - hidden = "true" > < /span>#JOB_NO#
 
 //link attributes
-class="t-Button t-Button--icon t-Button--hot t-Button--primary t-Button--simple t-Button--iconLeft"
+class = "t-Button t-Button--icon t-Button--hot t-Button--primary t-Button--simple t-Button--iconLeft"
 
-class="t-Button t-Button--icon t-Button--primary t-Button--simple t-Button--iconLeft"
+class = "t-Button t-Button--icon t-Button--primary t-Button--simple t-Button--iconLeft"
 
-t-Button--noUI
-t-Button--simple
+t - Button--noUI
+t - Button--simple
 
-"t-Button--stretch"
+    "t-Button--stretch"
 
 
 
@@ -119,11 +120,10 @@ t-Button--simple
   APP: 
 *****************************************************************************/
 
-function openModal(p_div_id)
-{
-     gBackground.fadeIn(100)
-;     gLightbox = jQuery('#' + p_div_id);
-     gLightbox.addClass('modalOn').fadeIn(100);
+function openModal(p_div_id) {
+    gBackground.fadeIn(100);
+    gLightbox = jQuery('#' + p_div_id);
+    gLightbox.addClass('modalOn').fadeIn(100);
 }
 
 /*
@@ -137,13 +137,13 @@ closeModal();
   --------
 */
 function modal_save_btn(e) {
-  // hide the keyboard
-  document.activeElement.blur();
-  // close the modal
-  closeModal();
-  // stop anything underneath firing
-  e.browserEvent.stopPropagation();
-  e.browserEvent.preventDefault();
+    // hide the keyboard
+    document.activeElement.blur();
+    // close the modal
+    closeModal();
+    // stop anything underneath firing
+    e.browserEvent.stopPropagation();
+    e.browserEvent.preventDefault();
 }
 
 
@@ -151,7 +151,7 @@ function modal_save_btn(e) {
     Apex
 *****************************************************************************/
 
-apex.debug('l_value:'+l_value);
+apex.debug('l_value:' + l_value);
 
 
 /*
@@ -168,9 +168,9 @@ $('#region-id').trigger('apexrefresh');
 
 // Set css from JS via jQuery css
 $('span.loadingdata')
-  .css({'border':'1px solid #FC0','background':'#FFC'})
-  .text('Preparing document, please wait...')
-  .slideDown(200);
+    .css({ 'border': '1px solid #FC0', 'background': '#FFC' })
+    .text('Preparing document, please wait...')
+    .slideDown(200);
 
 // Get tag in pElement and find data id 
 id = $(pElement).find('span').first().data('id');
@@ -185,48 +185,47 @@ id = $(pElement).find('span').first().data('id');
 apex.server.process("get_info", {
     // x01: "ED"
     // pageItems: "#P10_SELECTED"
-  }, {
+}, {
     // dataType: "text",
     // async:false,
     error: function(pjqXHR, pTextStatus, pErrorThrown) {
-      console.log('error:' + pTextStatus);
+        console.log('error:' + pTextStatus);
     },
     success: function(pData, pTextStatus, jqXHR) {
-      console.log('return: ' + pTextStatus);
-      console.log(JSON.stringify(pData));
-      console.log(JSON.stringify(jqXHR));
-    },// success
-  } 
-); // process
+        console.log('return: ' + pTextStatus);
+        console.log(JSON.stringify(pData));
+        console.log(JSON.stringify(jqXHR));
+    }, // success
+}); // process
 
 
 apex.jQuery.ajax({
-                    type: 'POST',
-                    url: 'wwv_flow.show',
-                    data: {
-                           p_request: "APPLICATION_PROCESS=save_image",
-                           p_flow_id: $('#pFlowId').val(),
-                           p_flow_step_id: $('#pFlowStepId').val(),
-                           p_instance: $('#pInstance').val()
-                      
-                    },
-                    async: true,
-                      error: function(pjqXHR, pTextStatus, pErrorThrown) {
-                      console.log('error:' + pTextStatus);
-                    },
-                      success: function(pData, pTextStatus, jqXHR) {
-                      console.log('return: ' + pTextStatus);
-                      console.log(JSON.stringify(pData));
-                      console.log(JSON.stringify(jqXHR));
+    type: 'POST',
+    url: 'wwv_flow.show',
+    data: {
+        p_request: "APPLICATION_PROCESS=save_image",
+        p_flow_id: $('#pFlowId').val(),
+        p_flow_step_id: $('#pFlowStepId').val(),
+        p_instance: $('#pInstance').val()
 
-                      //if you dbs process returns a JSON String with an attribute of status
-                      if(JSON.parse(pData).status !== 'success'){
-                        apex.debug('error - '+l_debug);
-                      } else {
-                        //success functionality
-                      }
-                    }// success
-                });   
+    },
+    async: true,
+    error: function(pjqXHR, pTextStatus, pErrorThrown) {
+        console.log('error:' + pTextStatus);
+    },
+    success: function(pData, pTextStatus, jqXHR) {
+            console.log('return: ' + pTextStatus);
+            console.log(JSON.stringify(pData));
+            console.log(JSON.stringify(jqXHR));
+
+            //if you dbs process returns a JSON String with an attribute of status
+            if (JSON.parse(pData).status !== 'success') {
+                apex.debug('error - ' + l_debug);
+            } else {
+                //success functionality
+            }
+        } // success
+});
 
 
 
@@ -236,17 +235,14 @@ apex.jQuery.ajax({
   ---------------------
 */
 $(document).on('keyup', function(event) {
-  // console.log('keyup:'+event.which);
-  if(event.which === 27){
-    closeModal();  
-  }
-  
+    // console.log('keyup:'+event.which);
+    if (event.which === 27) {
+        closeModal();
+    }
+
 });
 
 
-$("div.uHorizontalTabs ul li a").replaceWith(function(){
-        return $("<span>" + $(this).html() + "</span>");
+$("div.uHorizontalTabs ul li a").replaceWith(function() {
+    return $("<span>" + $(this).html() + "</span>");
 });
-
-
-
