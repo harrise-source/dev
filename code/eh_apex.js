@@ -1,6 +1,19 @@
 // DESC : Apex Native loader
 // **********************************************************************************************
 
+
+// get tall the selected items, perform the js function on them, get the results and join into concat string 
+// --
+$s('PXX_ITEMS', $("[name^='include']").map(function() {
+
+    if (this.checked && this.value != 'N') {
+        return this.value;
+    }
+
+}).get().join(":"));
+
+
+
 // apex show native loader
 //--
 apex.widget.waitPopup();
