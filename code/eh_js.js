@@ -1,15 +1,12 @@
-
-
 /* Simple Namespace Example */
 var myNamespace = {};
-myNamespace = (function(){
+myNamespace = (function() {
 
-  var _init = function(){
-  };
-  //return an object 
-  return { init: _init};
+    var _init = function() {};
+    //return an object 
+    return { init: _init };
 
-//self executing
+    //self executing
 })();
 
 /* OBJECT */
@@ -25,7 +22,7 @@ l_array.length;
 
 
 /* EXISTS */
-    
+
 // In JavaScript, everything is truthy or falsy and for numbers, 0 means false, everything else true. So you could write:
 
 if ($(selector).length)
@@ -33,7 +30,6 @@ if ($(selector).length)
 
 
 /* Self Executing Function */
-function aFunction(){
+function aFunction() {
 
 }();
-

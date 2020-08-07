@@ -69,6 +69,8 @@ promise.always(function() {
     popup.remove();
 });
 
+// MESSAGING
+//--
 
 // Displays a page-level success message ‘Changes saved!’.
 apex.message.showPageSuccess("Changes saved!");
@@ -78,6 +80,21 @@ if (this.data.successMessage) {
 
     apex.message.showPageSuccess(this.data.successMessage.text);
 }
+
+
+
+apx.showMessage = function(p_msg, p_delay) {
+
+    var message = p_msg;
+    var delay = p_delay ? p_delay : 3000;
+
+    apex.message.showPageSuccess(message)
+    setTimeout(function() {
+        apex.message.hidePageSuccess();
+    }, delay);
+
+}
+
 
 
 

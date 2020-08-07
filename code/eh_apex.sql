@@ -1,3 +1,42 @@
+
+-------------------------------------------------------------------------------
+--##Inline Dialog - Inline Popup menu 
+--
+
+Button to invoke 
+--
+Static ID = cal-info-btn
+
+DA - On Click
+--
+Open Region
+
+Region to display
+--
+Template = Inline Popup
+Custom Attribute = data-parent-element="#cal-info-btn"
+
+
+
+##Menu Popup - List
+
+Button to invoke 
+--
+CSS Class = js-menuButton
+Action = DA
+Custom Attribute = data-menu="actions_menu"
+
+
+List Region
+--
+Type = List
+Template = Blank
+List Reg Attributes = Menu Popup
+Static ID = actions
+
+
+
+-------------------------------------------------------------------------------
 --Sub variables
 --
 &APP_SESSION.
@@ -6,7 +45,7 @@
 
 
 
-
+-------------------------------------------------------------------------------
 -- apex_util.prepare_url
 --
 ,apex_util.prepare_url('f?p='||:APP_ALIAS||':40:'||:APP_SESSION||':::40:P40_ID:'||client_id) lnk
