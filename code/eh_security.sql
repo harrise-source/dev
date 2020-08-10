@@ -2,7 +2,7 @@
 grant u_group_super to harrise;
 
 Insert into USER_MASTER (LOGIN_ID,INITIALS,FULL_NAME,EMAIL_ADDRESS,OFFICE_PHONE,MOBILE_PHONE,OFFICE_FAX,MGR_ID,PRINTER_NAME,ACCOUNT_CODE,DEACTIVE_DATE) 
-values ('HARRISE','EDHA','EDDIE HARRIS','harrise@vhgroup.com.au','(08) 9241 1475',null,'(08) 9241 0155','DCP','\\vhhops1\hocpra319-d',null,null);
+values ('HARRISE','EDHA','EDDIE HARRIS','harrise@SAGE.com.au','(08) 9241 1475',null,'(08) 9241 0155','DCP','\\vhhops1\hocpra319-d',null,null);
 /
 
 Insert into USER_OFFICES (LOGIN_ID,DIV_CODE,SALES_OFFICE) values ('HARRISE','S','S');

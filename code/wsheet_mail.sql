@@ -2,12 +2,12 @@
 -- I use it heaps as sanity check for apex emailing
 begin
 apex_mail.send
-    (p_to         => 'wesleys@vhgroup.com.au'
-    ,p_from       => 'wesleys@vhgroup.com.au'
+    (p_to         => 'wesleys@sage.com.au'
+    ,p_from       => 'wesleys@sage.com.au'
     ,p_body       => 'text/html; charset=us-ascii'
     ,p_body_html  => 'hello <b>universe</b>'
     ,p_subj       => 'test send 1'
-    ,p_cc         => null -- 'internal_copy@vhgroup.com.au' --  v('P59_CC')
+    ,p_cc         => null -- 'internal_copy@sage.com.au' --  v('P59_CC')
    );
 end;   
 /
@@ -27,12 +27,12 @@ begin
   dbms_output.put_line('l_len:'||l_len);
 
 l_id:=apex_mail.send
-    (p_to         => 'wesleys@vhgroup.com.au'
-    ,p_from       => 'wesleys@vhgroup.com.au'
+    (p_to         => 'wesleys@sage.com.au'
+    ,p_from       => 'wesleys@sage.com.au'
     ,p_body       => 'text/html; charset=us-ascii'
     ,p_body_html  => 'hello <b>universe</b>'
     ,p_subj       => 'test attach 1'
-    ,p_cc         => null -- 'internal_copy@vhgroup.com.au' --  v('P59_CC')
+    ,p_cc         => null -- 'internal_copy@sage.com.au' --  v('P59_CC')
    );
    
    APEX_MAIL.ADD_ATTACHMENT(

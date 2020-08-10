@@ -1,5 +1,5 @@
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/ords/ws/vbs/createClient',
+  url: 'http://vhorawlfrd1:7003/ords/ws/SAGE/createClient',
   type: 'POST',
   data: {'name': 'EDDIE MURPHY','address':'Beverly Crest Mansion'},
 })
@@ -16,7 +16,7 @@ jQuery.ajax({
 //
 headerParams = {'Authorization':'bearer AH2ISO1EPppCGQFm02hStg..'};
 var obj  = {
-  url: 'http://vhorawlfrd1:7003/ords/ws/vbs/createClient',
+  url: 'http://vhorawlfrd1:7003/ords/ws/SAGE/createClient',
   type: 'POST',
   dataType: 'text',
   headers: headerParams,
@@ -43,7 +43,7 @@ jQuery.ajax(obj);
 //
 headerParams = {'Authorization':'bearer AH2ISO1EPppCGQFm02hStg..'};
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/ws/vbs/createClient',
+  url: 'http://vhorawlfrd1:7003/SAGE/ws/SAGE/createClient',
   type: 'POST',
   dataType: 'text',
   headers: headerParams,
@@ -73,7 +73,7 @@ jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
 document.getElementsByTagName('head')[0].appendChild(jq);
 
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/ws/vbs/createClient',
+  url: 'http://vhorawlfrd1:7003/SAGE/ws/SAGE/createClient',
   type: 'POST',
   data: {'name': 'EDDIE MURPHY','address':'Beverly Crest Mansion'},
 })
@@ -89,7 +89,7 @@ jQuery.ajax({
 
 
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/ws/vbs/create_client', // This is dev, final URL to be supplied
+  url: 'http://vhorawlfrd1:7003/SAGE/ws/SAGE/create_client', // This is dev, final URL to be supplied
   type: 'POST',
   data: {'source'      : '' // website saving lead, eg: smarthomesforliving.com.au/contact-us/
         ,'first_name'  : '' // your field value, eg: jQuery('#input_1_21_3').val()

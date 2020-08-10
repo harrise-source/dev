@@ -1,7 +1,7 @@
 
 
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/rest/client/create', // This is dev, final URL to be supplied
+  url: 'http://vhorawlfrd1:7003/SAGE/rest/client/create', // This is dev, final URL to be supplied
   type: 'POST',
   data: {  "first_name"          : "ED"
           ,"last_name"             : true 
@@ -43,7 +43,7 @@ jq.src = "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js";
 document.getElementsByTagName('head')[0].appendChild(jq);
 
 
-/*'http://vhorawlfrd1:7003/vbs/rest/lead/create*/
+/*'http://vhorawlfrd1:7003/SAGE/rest/lead/create*/
 /*------------------------------------------------------------------------------------------------*/
 /*  ,"user_ip"           : "192.168.1.120"
     ,"user_agent"        : "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.152 Safari/537.36"
@@ -57,11 +57,11 @@ var v_attributes = "[{'name':'Occupation','value':''},{'name':'Work type','value
 var v_attributes = '[{"name":"Occup\'ation","value":"Food Taster"},{"name":"Work type","value":"fulltime/partime"},{"name":"user-ip","value":"192.168.1.123"},{"name":"Current status","value":"At home"},{"name":"Building with partner","value":"123"},{"name":"Number of children","value":"123"},{"name":"Density code","value":"R20"},{"name":"Current deposit","value":"5,00,000"},{"name":"Car loan repayments","value":"500000"},{"name":"Credit card","value":"500000"},{"name":"Personal loans:","value":"500000"}]';
 
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/rest/lead/create', // This is dev, final URL to be supplied
+  url: 'http://vhorawlfrd1:7003/SAGE/rest/lead/create', // This is dev, final URL to be supplied
   type: 'POST',
   data: {  "first_name"        : "NICK"
           ,"last_name"         : "CUMMINS10" 
-          ,"email_address"     : "KELLYK@VHGROUP.COM.AU"
+          ,"email_address"     : "KELLYK@SAGE.COM.AU"
           ,"phone_contact"     : "0401231230"
           ,"no_mailout"        : "Y"
           ,"source"            : "ID WEBSITE"
@@ -153,7 +153,7 @@ jQuery.ajax({
 }
 
   /*
-  vbs_ws.create_client
+  SAGE_ws.create_client
     (p_source      => :source
     ,p_first_name  => :first_name
     ,p_surname     => :surname
@@ -169,7 +169,7 @@ jQuery.ajax({
   );
 
 jQuery.ajax({
-  url: 'http://vhorawlfrd1:7003/vbs/ws/vbs/create_client', // This is dev, final URL to be supplied
+  url: 'http://vhorawlfrd1:7003/SAGE/ws/SAGE/create_client', // This is dev, final URL to be supplied
   type: 'POST',
   data: {'source'      : '' // website saving lead, eg: smarthomesforliving.com.au/contact-us/
         ,'first_name'  : '' // your field value, eg: jQuery('#input_1_21_3').val()
