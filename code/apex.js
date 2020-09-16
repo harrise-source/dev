@@ -13,7 +13,6 @@ $s('PXX_ITEMS', $("[name^='include']").map(function() {
 }).get().join(":"));
 
 
-
 // apex show native loader
 //--
 apex.widget.waitPopup();
@@ -107,7 +106,7 @@ apex.message.alert("Load complete.", function() {
 
 // Key Down!!!   -- the other Key Events don't fire on tab(9)
 
-// JavaScript Expression
+// JavaScript Expressionapex
 //
 this.browserEvent.which === 13 //enter or 
     ||
@@ -135,7 +134,6 @@ aria - hidden = "true" > < /span>#JOB_NO#
 
 //link attributes
 class = "t-Button t-Button--icon t-Button--hot t-Button--primary t-Button--simple t-Button--iconLeft"
-
 class = "t-Button t-Button--icon t-Button--primary t-Button--simple t-Button--iconLeft"
 
 t - Button--noUI
