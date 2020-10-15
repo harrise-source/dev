@@ -260,7 +260,7 @@ apex.jQuery.ajax({
 
 /*
   Capture a key release Escape Key
-  ---------------------
+  ------------------------------------------
 */
 $(document).on('keyup', function(event) {
     // console.log('keyup:'+event.which);
@@ -274,3 +274,33 @@ $(document).on('keyup', function(event) {
 $("div.uHorizontalTabs ul li a").replaceWith(function() {
     return $("<span>" + $(this).html() + "</span>");
 });
+
+
+
+
+/*
+    Return a message on a Dialog Close DA
+    ------------------------------------------
+*/
+
+
+//The code in the Dialog Closed dynamic action should look like this (I made some improvements):
+if (this.data.successMessage) {
+    // use new API to show the success message if any that came from the dialog
+    apex.message.showPageSuccess(this.data.successMessage.text);
+}
+// Refresh the report region
+apex.region("department_report").refresh();
+
+
+//If, as a last resort, you need to refresh the parent page you can use code similar to what the Sample Dialog app used to do in 5.0.
+
+var lSuccessMsg = this.data.successMessage.urlSuffix,
+    lUrl = 'f?p=&APP_ID.:1:&SESSION.::&DEBUG.:::';
+
+if (lSuccessMsg) {
+    lUrl += lSuccessMsg;
+}
+setTimeout(function() {
+    apex.navigation.redirect(lUrl);
+}, 0);
