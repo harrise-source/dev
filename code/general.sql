@@ -1,3 +1,8 @@
+--------------------------------------------------------------------------------
+-- GENERAL SQL STATEMENTS AND TECHNIQUES
+-- https://docs.oracle.com/database/121/SQLRF/toc.htm
+--------------------------------------------------------------------------------
+
 for _rec  in (select $[![]!] 
           from   $[![]!])
 loop
@@ -50,4 +55,7 @@ insert into table (column)
 values (values);
 
 
+--------------------------------------------------------------------------------
+-- ORDER BY
 
+ORDER BY col NULLS FIRST DESC | ASC

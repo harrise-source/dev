@@ -12,3 +12,15 @@ for r_rec in (
   end loop;
 end;
 / 
+
+
+-------------------------------------------------------------------------------
+-- install app from the sqldev
+--
+
+exec apex_application_install.set_workspace(p_workspace         => 'WORKSPACE_NAME');
+exec apex_application_install.set_keep_sessions(p_keep_sessions => true);
+exec apex_application_install.set_schema('PARSER_NAME')
+
+@"C:\dev\git\dev\code\apex\fXXX.sql"
+

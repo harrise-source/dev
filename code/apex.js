@@ -68,6 +68,16 @@ promise.always(function() {
     popup.remove();
 });
 
+
+
+//-----------------------------------------------------------------------------
+// CHECK IN JS IF THE APEX PAGE HAS CHANGED
+
+if (apex.page.isChanged()) {
+    apx.showMessage('You must save your changes first');
+}
+
+
 // MESSAGING
 //--
 
@@ -79,8 +89,6 @@ if (this.data.successMessage) {
 
     apex.message.showPageSuccess(this.data.successMessage.text);
 }
-
-
 
 apx.showMessage = function(p_msg, p_delay) {
 
