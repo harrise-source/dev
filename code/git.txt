@@ -1,0 +1,207 @@
+/*___________________________________________________________________________
+    GIT COMMANDS
+___________________________________________________________________________*/
+
+/*
+  Setting your branch to exactly match the remote branch can be done in two steps:
+  -------------------------------------------------------------------------------
+*/
+git fetch origin
+git reset --hard origin/master
+
+If you want to save your current branchs state before doing this (just in case), you can do:
+git commit -a -m "Saving my work, just in case"
+git branch my-saved-work
+
+/*
+  Undoing changes from SA
+  -------------------------------------------------------------------------------
+*/
+git reset HEAD <file_name>
+
+/*
+  Undoing local changes to WD 
+  -------------------------------------------------------------------------------
+*/
+git checkout <file_name>
+
+
+
+/*
+  TAGGING
+  -------------------------------------------------------------------------------
+*/
+-- List tags 
+git tag
+
+-- List tags with seach
+git tag -1 'v1.4.2.*'
+
+-- Create an annotated tag
+git tag -a v1.4
+
+-- Create an annotated tag with message
+git tag -a v1.4 -m 'message'
+
+
+/*
+  CREATE
+  -------------------------------------------------------------------------------
+*/
+
+--create
+git init
+
+-- Get a copy of a git repo
+git clone https://github.com/jquery/jquery.git
+
+-- Status of repo
+git status
+
+-- Multi use, Add to be tracked, Add to stage area
+-- Will only commit changes to the files at the time of execute
+git add
+
+/*
+  COMMIT
+  -------------------------------------------------------------------------------
+*/
+
+-- Commit
+git commit -m 'This is my message'
+
+-- Commit from WD skip SA
+git commit -a
+ls
+
+/*
+  DIFF
+  -------------------------------------------------------------------------------
+*/
+-- show changes made but staged
+git diff
+
+-- show changes staged by not commited
+git diff --staged
+
+/*
+  REMOVE/DELETE
+  -------------------------------------------------------------------------------
+*/
+-- remove from tracking, WD and SA
+git rm --cached <>
+
+-- remove from tracking and SA
+git rm --cached <>
+
+-- remove all files from log dir with .log extension
+git rm log/*.log
+
+/*
+  MOVE
+  -------------------------------------------------------------------------------
+*/
+-- move a file (Like SVN it is effectively a rm and add)
+git mv file_from file_to
+
+/*
+  HISTORY/LOG
+  -------------------------------------------------------------------------------
+*/
+
+-- show history
+git log
+    
+-- history with diff (-p) and only 2 commits (-2)
+git log -p -2
+
+-- log visualiser
+gitk 
+
+/*
+  BRANCHING
+  http://git-scm.com/book/en/Git-Branching-What-a-Branch-Is
+  -------------------------------------------------------------------------------
+*/
+
+-- Create Branch
+git branch aNewBranch
+
+-- Switch WD to Branch
+git checkout aNewBranch
+
+git checkout .
+
+/*
+  STASH
+  http://git-scm.com/book/en/Git-Tools-Stashing
+  
+  Take the changes made to WD and SA and stashes them 
+  WD is then clean like after a checkout
+  -------------------------------------------------------------------------------
+*/
+
+git stash
+git stash list
+
+git stash apply stash@{1}
+
+/*
+  git push
+  http://git-scm.com/docs/git-push
+
+  push 'master' branch to 'origin' server
+  -------------------------------------------------------------------------------
+*/
+
+git push origin master 
+
+/*
+  git fetch/pulling
+  http://git-scm.com/book/en/Git-Basics-Working-with-Remotes#Fetching-and-Pulling-from-Your-Remotes
+
+  fetch - gets all the data for all branches from [remote-name]
+  pull - fetch and then merge a remote branch into local one
+  -------------------------------------------------------------------------------
+*/
+
+git fetch origin
+
+git pull
+
+/*
+  List your remote or distrivbuted repos
+  -------------------------------------------------------------------------------
+*/
+
+git remote -v
+
+/*
+  Rebase????
+  Set the WD back pointing to the origin/master
+  -------------------------------------------------------------------------------
+*/
+
+/*
+  RESET
+  to unstage a change
+  -------------------------------------------------------------------------------
+*/
+git reset HEAD <file_name>
+
+git reset 
+
+/*
+  proxy
+  -----------------------------------------------------------------------------
+*/
+
+-- format git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+
+git config --global http.proxy http://vhhoiwsva2.ventura-homes.com.au:8080
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+git config --global --get http.proxy
+git config --global --get https.proxy
