@@ -28,11 +28,6 @@ BEGIN
 END debug;
 
 
-
-/****************************************************************************
-	 CONSTRUCTION
-*****************************************************************************/
-
 -- Direct from Apex schema
 select * 
 from apex_workspace_activity_log
@@ -41,7 +36,7 @@ from apex_workspace_activity_log
 select * 
 from apx_visits
 where app_id = 105
-and app_user = 'BANASIAKA'
+and app_user = ''
 and date_logged > sysdate-3
 order by date_logged desc;
 
@@ -49,7 +44,7 @@ order by date_logged desc;
 select * 
 from debug_log
 where app_id = 105
-and username = 'BANASIAKA'
+and username = ''
 and ts > sysdate-3
 order by ts desc;
 

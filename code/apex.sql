@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 --##Inline Dialog - Inline Popup menu 
 --
-
+/*
 Button to invoke 
 --
 Static ID = cal-info-btn
@@ -26,14 +26,13 @@ CSS Class = js-menuButton
 Action = DA
 Custom Attribute = data-menu="actions_menu"
 
-
 List Region
 --
 Type = List
 Template = Blank
 List Reg Attributes = Menu Popup
 Static ID = actions
-
+*/
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------

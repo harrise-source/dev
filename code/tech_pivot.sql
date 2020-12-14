@@ -5,33 +5,33 @@
 
 select *
 from (
-select null LNK
-,to_char(view_date,'DAY') LABEL
-,count(*) c 
---,sum(decode
-,application_id
+      select null LNK
+      ,to_char(view_date,'DAY') LABEL
+      ,count(*) c 
+      --,sum(decode
+      ,application_id
 
-   --this is where it needs to be specific, so that’s what you’re measuring compared to the ‘usual’.
-  ,sum(case when apex_user='WESLEYS' and application_id = 105 then 1 else 0 end) usr 
+        --this is where it needs to be specific, so that’s what you’re measuring compared to the ‘usual’.
+        ,sum(case when apex_user='WESLEYS' and application_id = 105 then 1 else 0 end) usr 
 
-from apx_activity_log al
-where 1=1
---and (application_id = :P73_APP_ID or :P73_APP_ID IS NULL)
---AND    view_date between COALESCE(TO_DATE(:P73_DATE_FROM),TRUNC(SYSDATE)) AND trunc(COALESCE(TO_DATE(:P73_DATE_TO),SYSDATE)+1)-1/86400
---and apex_user = 'WESLEYS'
-and view_date > sysdate-7
-group by to_char(view_date,'DAY'),1 + TRUNC (view_date)  - TRUNC (view_date, 'IW'), application_id
-order by 1 + TRUNC (view_date)  - TRUNC (view_date, 'IW')
-) 
-pivot
-(sum(c)
-   for application_id in
-     (101 as Login
-     ,104 as Link
-     ,108 as Addenda
-     ,110 as Reporting
-     ,105 as Construction
-     ,205 as Control)
+      from apx_activity_log al
+      where 1=1
+      --and (application_id = :P73_APP_ID or :P73_APP_ID IS NULL)
+      --AND    view_date between COALESCE(TO_DATE(:P73_DATE_FROM),TRUNC(SYSDATE)) AND trunc(COALESCE(TO_DATE(:P73_DATE_TO),SYSDATE)+1)-1/86400
+      --and apex_user = 'WESLEYS'
+      and view_date > sysdate-7
+      group by to_char(view_date,'DAY'),1 + TRUNC (view_date)  - TRUNC (view_date, 'IW'), application_id
+      order by 1 + TRUNC (view_date)  - TRUNC (view_date, 'IW')
+      ) 
+      pivot
+      (sum(c)
+        for application_id in
+          (101 as Login
+          ,104 as Link
+          ,108 as Addenda
+          ,110 as Reporting
+          ,105 as Construction
+          ,205 as Control)
 ) l;     
      
 -- Simple example

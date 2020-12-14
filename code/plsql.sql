@@ -47,7 +47,7 @@ htp.tableclose;
 
 
 /*
-  apex_application_global.vc_arr2 || apex_t_varchar2
+  apex_application_global.vc_arr2 || apex_t_varchar2 ARRAY
   -------------------------------------------------------------------------------
 */
 
