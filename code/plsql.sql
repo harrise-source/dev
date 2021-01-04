@@ -98,7 +98,15 @@ select  c_year_number
    where employee_id = 138
 /
 
-2013
+
+/*
+  UTILITY
+  -----------------------------------------------------------------------------
+*/
+
+--hide compile warnings in sqldev
+ALTER SESSION SET PLSQL_WARNINGS='DISABLE:ALL';
+
 
 
 /****************************************************************************

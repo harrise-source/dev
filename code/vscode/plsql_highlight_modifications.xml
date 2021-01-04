@@ -1,0 +1,15 @@
+<!-- <dict>
+    <key>match</key>
+    <string>(?i)\b(l_[-a-z0-9_]+)\b</string>
+    <key>name</key>
+    <string>variable.other.oracle</string>
+</dict> -->
+
+
+<!-- Incldue c_ and v_ for variable definition -->
+<dict>
+    <key>match</key>
+    <string>(?i)\b((l_|c_|v_)[-a-z0-9_]+)\b</string>
+    <key>name</key>
+    <string>variable.other.oracle</string>
+</dict>
