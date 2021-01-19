@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- GENERAL SQL STATEMENTS AND TECHNIQUES
+-- BASIC SQL STATEMENTS AND TECHNIQUES
 -- https://docs.oracle.com/database/121/SQLRF/toc.htm
 --------------------------------------------------------------------------------
 
@@ -59,3 +59,11 @@ values (values);
 -- ORDER BY
 
 ORDER BY col NULLS FIRST DESC | ASC
+
+
+---- ANSI DATE 
+
+select * 
+from my_table_of_dates
+where a_date <= date '2021-01-18'
+and a_date > sysdate;

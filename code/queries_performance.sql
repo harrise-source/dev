@@ -6,7 +6,7 @@ select null lnk
   ,to_char(view_date) dd
   ,round(avg(elapsed_time),2) "Avg time"
   ,round(avg(avg(elapsed_time)) over (order by to_char(view_date,'yymmdd') desc rows between 3 preceding and 3 following),2) "6 day moving avg"
-from adde_activity_log where 1=1
+from activity_log where 1=1
 and view_date > coalesce(to_date(:P23_SINCE),sysdate-7)
 and application_id = coalesce(nullif(to_number(:P23_APP_ID),0), application_id)
 and page_id = coalesce(to_number(:P23_PAGE_ID), page_id)
@@ -20,7 +20,7 @@ order by to_char(view_date,'yymmdd')
 */
 
 select to_char(round(avg(elapsed_time),1),'990.0') time, count(*) cnt, trunc(view_date,'hh24') view_date 
-from apeX_workspace_activity_log-- adde_activity_log
+from apeX_workspace_activity_log-- activity_log
 where application_id = 105 and page_id = 50
 --and apeX_user = 'WESLEYS'
 --and elapsed_time > 0.2

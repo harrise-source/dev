@@ -1,0 +1,42 @@
+{
+  "workbench.sideBar.location": "right",
+  "window.zoomLevel": 0,
+  "workbench.iconTheme": "vscode-icons",
+  "extensions.ignoreRecommendations": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "git.ignoreMissingGitWarning": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.smoothScrolling": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.columnSelection": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Comment",
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.block.documentation",
+          "comment.line",
+          "comment.line.double-slash",
+          "punctuation.definition.comment",
+        ],
+        "settings": {
+          "fontStyle": "italic",
+        }
+      },
+      {
+        "name": "Function_Procedure_highlight",
+        "scope": [
+          "meta.procedure.oracle",
+        ],
+        "settings": {
+          "fontStyle": "underline"
+        }
+      }
+    ]
+  }
+}
