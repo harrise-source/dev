@@ -10,26 +10,6 @@ loop
 end loop;
 
 
--- nvl2  (null test)
---  when expr1 not null then expr2 else expr3
-
-nvl2(expr1,expr2, epxr3)
-
-case 
-  when expr1 is not null then expr2 
- else expr3 
-end
-
--- nullif (equality test)
--- if equal then null
-
-nullif(expr1, expr2)
-
-CASE 
- WHEN expr1 = expr 2 THEN NULL  --when equal then null
- ELSE expr1 
-END
-
 
 
 
@@ -67,3 +47,42 @@ select *
 from my_table_of_dates
 where a_date <= date '2021-01-18'
 and a_date > sysdate;
+
+
+
+
+/* 
+   NULL Related Functions
+  --------------------------------------------------------------------------------
+  https://oracle-base.com/articles/misc/null-related-functions
+*/
+
+
+
+  --lnnvl(expression)
+  --  If this condition evaluates to false or unknown, it returns true. 
+  --  If the condition evaluates to true, it returns false.
+
+
+
+-- nvl2  (null test)
+--  when expr1 not null then expr2 else expr3
+
+nvl2(expr1,expr2, epxr3)
+
+case 
+  when expr1 is not null then expr2 
+ else expr3 
+end
+
+-- nullif (equality test)
+-- if equal then null
+
+nullif(expr1, expr2)
+
+CASE 
+ WHEN expr1 = expr 2 THEN NULL  --when equal then null
+ ELSE expr1 
+END
+
+

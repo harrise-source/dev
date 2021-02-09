@@ -1,3 +1,15 @@
+
+
+/* 
+  PL/SQL Generator App
+    https://tinyurl.com/quickplsql2  
+    https://apex.oracle.com/pls/apex/f?p=QUICKPLSQL:HOME&c=MULEDEV
+
+
+  PL/SQL TAPI Generator
+    https://apex.oracle.com/pls/apex/f?p=48301:3:21277670970158:::3::
+*/
+
 create or replace package body util_pkg as
 -- SAGE(EH)
 

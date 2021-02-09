@@ -213,14 +213,14 @@ DECLARE
 BEGIN
   l_userid := apex_application.g_x01;
 
-   SELECT email, name
-   into l_email, l_name
-   FROM organisations_img
-   WHERE upper(user_account) = upper(apex_application.g_x01);
+  SELECT email, name
+  into l_email, l_name
+  FROM organisations_img
+  WHERE upper(user_account) = upper(apex_application.g_x01);
 
-apex_util.set_session_state('P7_X',l_email);
-apex_util.json_from_items('P7_X');
-apex_util.json_from_items('P7_NAME');
+  apex_util.set_session_state('P7_X',l_email);
+  apex_util.json_from_items('P7_X');
+  apex_util.json_from_items('P7_NAME');
 
 end;
 
