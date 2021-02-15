@@ -1,6 +1,124 @@
+--  START OF FILE
+
+
 /****************************************************************************
-  START OF FILE
+  COLLECIONS
+  ---------------------------------------------------------------------------
 *****************************************************************************/
+
+/*
+  Collection Methods 
+  ---------------------------------------------------------------------------
+  ** A variety of methods exist for collections, but not all are relevant for every collection type.
+
+    EXISTS(n) - Returns TRUE if the specified element exists.
+    COUNT - Returns the number of elements in the collection.
+    LIMIT - Returns the maximum number of elements for a VARRAY, or NULL for nested tables.
+    FIRST - Returns the index of the first element in the collection.
+    LAST - Returns the index of the last element in the collection.
+    PRIOR(n) - Returns the index of the element prior to the specified element.
+    NEXT(n) - Returns the index of the next element after the specified element.
+    EXTEND - Appends a single null element to the collection.
+    EXTEND(n) - Appends n null elements to the collection.
+    EXTEND(n1,n2) - Appends n1 copies of the n2th element to the collection.
+    TRIM - Removes a single element from the end of the collection.
+    TRIM(n) - Removes n elements from the end of the collection.
+    DELETE - Removes all elements from the collection.
+    DELETE(n) - Removes element n from the collection.
+    DELETE(n1,n2) - Removes all elements from n1 to n2 from the collection.
+*/
+
+/*
+  TYPE IS RECORD
+  -------------------------------------------------------------------------------
+*/
+
+SET SERVEROUTPUT ON
+
+-- Collection of records.
+DECLARE
+  
+  TYPE t_row IS RECORD (
+    id  NUMBER,
+    description VARCHAR2(50)
+  );
+
+  TYPE t_tab IS TABLE OF t_row;
+  l_tab t_tab := t_tab();
+BEGIN
+  FOR i IN 1 .. 10 LOOP
+    l_tab.extend();
+    l_tab(l_tab.last).id := i;
+    l_tab(l_tab.last).description := 'Description for ' || i;
+  END LOOP;
+END;
+/
+
+/*
+  Associate Array (INDEXED BY)
+  -------------------------------------------------------------------------------
+*/
+SET SERVEROUTPUT ON SIZE 1000000
+DECLARE
+  TYPE table_type IS TABLE OF NUMBER(10)
+    INDEX BY BINARY_INTEGER;
+  
+  v_tab  table_type;
+  v_idx  NUMBER;
+BEGIN
+  -- Initialise the collection.
+  << load_loop >>
+  FOR i IN 1 .. 5 LOOP
+    v_tab(i) := i;
+  END LOOP load_loop;
+  
+  -- Delete the third item of the collection.
+  v_tab.DELETE(3);
+  
+  -- Traverse sparse collection
+  v_idx := v_tab.FIRST;
+  << display_loop >>
+  WHILE v_idx IS NOT NULL LOOP
+    DBMS_OUTPUT.PUT_LINE('The number ' || v_tab(v_idx));
+    v_idx := v_tab.NEXT(v_idx);
+  END LOOP display_loop;
+END;
+/
+
+
+/*
+  VARRAY  (SET SIZE)
+  -------------------------------------------------------------------------------
+*/
+SET SERVEROUTPUT ON SIZE 1000000
+DECLARE
+  TYPE table_type IS VARRAY(5) OF NUMBER(10);
+  v_tab  table_type;
+  v_idx  NUMBER;
+BEGIN
+  -- Initialise the collection with two values.
+  v_tab := table_type(1, 2);
+
+  -- Extend the collection with extra values.
+  << load_loop >>
+  FOR i IN 3 .. 5 LOOP
+    v_tab.extend;
+    v_tab(v_tab.last) := i;
+  END LOOP load_loop;
+  
+  -- Can't delete from a VARRAY.
+  -- v_tab.DELETE(3);
+
+  -- Traverse collection
+  v_idx := v_tab.FIRST;
+  << display_loop >>
+  WHILE v_idx IS NOT NULL LOOP
+    DBMS_OUTPUT.PUT_LINE('The number ' || v_tab(v_idx));
+    v_idx := v_tab.NEXT(v_idx);
+  END LOOP display_loop;
+END;
+/
+
 
 /*
   Associate Array into TABLE 
@@ -52,7 +170,6 @@ htp.tableclose;
 */
 
 l_array apex_application_global.vc_arr2;
-
 l_array := apex_util.string_to_table(p_string => 'A:S:T:Q', p_separator => ':');
 
 -- can either add to collection
@@ -77,7 +194,7 @@ from apex_collections
 where collection_name = 'COLLECTION_NAME';
 
 /*
-  with function (12c)
+  WITH function (12c)
   -------------------------------------------------------------------------------
 */
 create or replace package pkg
@@ -108,9 +225,4 @@ select  c_year_number
 ALTER SESSION SET PLSQL_WARNINGS='DISABLE:ALL';
 
 
-
-/****************************************************************************
-  END OF FILE
-*****************************************************************************/
-
-
+--  END OF FILE
